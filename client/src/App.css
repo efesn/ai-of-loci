@@ -18,6 +18,8 @@ h1 {
   text-align: center;
 }
 
+
+
 body {
   display: flex;
   align-items: center;
@@ -31,6 +33,11 @@ body {
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
   height: 800px; 
+  opacity: 0; /* Initial opacity set to 0 */
+  transition: opacity 0.5s ease-in-out;
+}
+.container.active {
+  opacity: 1; /* Opacity set to 1 when the 'active' class is present */
 }
 
 .container2 {
@@ -155,6 +162,34 @@ a:hover {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* PAGES */
+.about-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  /* margin-bottom: 300px; */
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.about-content.active {
+  opacity: 1;
+}
+
+
+.faq-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 600px;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.faq-content.active {
+  opacity: 1;
 }
 
 
