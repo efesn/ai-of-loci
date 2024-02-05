@@ -77,7 +77,7 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
       </Routes>
 
-      <div className='container2'>
+      <div className='container-memorize'>
         <input
           type="text"
           id="message"
@@ -86,14 +86,22 @@ const App = () => {
           onKeyDown={handleKeyDown}
           placeholder="Tell me what do you want to memorize"
         />
+      </div>
+      <div className='container-place'>
+
+        <label htmlFor="place" className="place-label">
+        Enter A Place:
+      </label>
         <input
         type="text"
         id="place"
         value={place}
         onChange={(e) => setPlace(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Enter your place"
+        placeholder="E.g.Home,Kitchen, etc."
+        className='place-input'
       />
+
       </div>
       <div>
         <button onClick={handleGenerateCompletion}>Generate Loci</button>

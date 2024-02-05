@@ -40,11 +40,37 @@ body {
   opacity: 1; /* Opacity set to 1 when the 'active' class is present */
 }
 
-.container2 {
+.container-memorize {
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.container-place {
+
+  display: flex;
+  flex-direction: row; /* Display items horizontally */
+  align-items: center; /* Align items at the center of the cross axis */
+  font-family: 'JetBrains Mono', monospace;
+}
+  /* align-self: flex-start;
+  width: 10em;
+  height: 5em;
+  margin-bottom: 2em;
+  font-family: 'JetBrains Mono', monospace;
+ } */ 
+
+ .place-label {
+  margin-right: 20px;
+  margin-bottom: 30px;
+ }
+
+ .place-input {
+  width: 13em;
+ }
+
 
 input {
   width: 50em;
