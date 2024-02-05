@@ -51,9 +51,12 @@ body {
 .container-place {
 
   display: flex;
-  flex-direction: row; /* Display items horizontally */
   align-items: center; /* Align items at the center of the cross axis */
   font-family: 'JetBrains Mono', monospace;
+  flex-direction: row; /* Display items horizontally */
+  justify-content: center;
+  padding: 10px;
+  
 }
   /* align-self: flex-start;
   width: 10em;
@@ -65,11 +68,24 @@ body {
  .place-label {
   margin-right: 20px;
   margin-bottom: 30px;
+  width: 30%;
+  justify-content: flex-start;
+}
+
+.place-input {
+  width: 13em;
+  justify-content: center;
+
+  /* width: 13em; */
+}
+ /* .place-label {
+  margin-right: 20px;
+  margin-bottom: 30px;
  }
 
  .place-input {
   width: 13em;
- }
+ } */
 
 
 input {
