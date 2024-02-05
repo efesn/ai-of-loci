@@ -87,17 +87,23 @@ const App = () => {
           placeholder="Tell me what do you want to memorize"
         />
       </div>
+      
+      <div className='placeWarning'>
+      <p>Place will be selected randomly if you dont enter anything</p>
+      </div>
+
       <div className='container-place'>
 
         <label htmlFor="place" className="place-label">
-        Enter A Place:
+        Enter A Place: 
       </label>
+      
+        
         <input
         type="text"
         id="place"
         value={place}
         onChange={(e) => setPlace(e.target.value)}
-        onKeyDown={handleKeyDown}
         placeholder="E.g.Home,Kitchen, etc."
         className='place-input'
       />

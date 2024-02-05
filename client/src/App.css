@@ -75,9 +75,20 @@ body {
 .place-input {
   width: 13em;
   justify-content: center;
+}
+
+.placeWarning {
+  color: red;
+  font-size: 0.9em;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 30px;
+  
+}
+
+
 
   /* width: 13em; */
-}
  /* .place-label {
   margin-right: 20px;
   margin-bottom: 30px;
