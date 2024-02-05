@@ -18,11 +18,13 @@ app.use(cors());
 
 app.post("/", async (req, res) => {
   console.log("Received a request:", req.body);
-  const { message } = req.body;
+  const { message, place } = req.body;
 
   const conversationHistory = [
     { "role": "system", "content": "I want you to act as a method of loci generator. You help people to memorize things using the method of loci. User will provide the thing he/she wants to memorize. Once you have this information, start generation. Use your most efficient way to generate this. Don't keep it too short or too long. You decide the place etc. Don't add extra comments. Answer in numbered list. Go to the next line below at the end of each sentence. Here is your task:" },
+    
     { "role": "user", "content": message },
+    { "role": "user", "content": `Place: ${place}` }
   ];
 
   try {

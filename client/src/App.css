@@ -167,7 +167,7 @@ body::-webkit-scrollbar {
 /* PAGES */
 .about-content {
   text-align: center;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto;
   /* margin-bottom: 300px; */
   opacity: 0;

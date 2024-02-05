@@ -19,6 +19,7 @@ const App = () => {
   const [message, setMessage] = useState('');
   const [completion, setCompletion] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [place, setPlace] = useState('');
 
   useEffect(() => {
     setIsVisible(true);
@@ -32,7 +33,7 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, place }),
       });
   
       if (!response.ok) {
@@ -85,6 +86,14 @@ const App = () => {
           onKeyDown={handleKeyDown}
           placeholder="Tell me what do you want to memorize"
         />
+        <input
+        type="text"
+        id="place"
+        value={place}
+        onChange={(e) => setPlace(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Enter your place"
+      />
       </div>
       <div>
         <button onClick={handleGenerateCompletion}>Generate Loci</button>
