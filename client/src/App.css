@@ -277,6 +277,7 @@ body::-webkit-scrollbar {
 
   input {
     max-width: 300px;
+    margin-top: 20px;
   }
 }
 

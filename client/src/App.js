@@ -88,9 +88,9 @@ const App = () => {
         />
       </div>
       
-      <div className='placeWarning'>
+      {/* <div className='placeWarning'>
       <p>Place will be selected randomly if you dont enter anything</p>
-      </div>
+      </div> */}
 
       <div className='container-place'>
 
@@ -108,6 +108,9 @@ const App = () => {
         className='place-input'
       />
 
+      </div>
+      <div className='placeWarning'>
+      <p>Place will be selected randomly if you dont enter a place</p>
       </div>
       <div>
         <button onClick={handleGenerateCompletion}>Generate Loci</button>
