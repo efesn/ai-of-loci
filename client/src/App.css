@@ -245,6 +245,13 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
+.alert-message {
+  color: rgb(226, 126, 4);
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+
 
 
 /* ---------- TABLET --------------- */
@@ -268,7 +275,10 @@ body::-webkit-scrollbar {
   .container {
     padding: 0 10px;
     overflow-y: auto;
+   
   }
+
+  
 
   .logo {
     max-width: 250px;

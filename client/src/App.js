@@ -7,6 +7,7 @@ import About from './About';
 import './index';
 
 
+
 const Home = () => {
   return <div></div>;  
 };
@@ -20,6 +21,8 @@ const App = () => {
   const [completion, setCompletion] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [place, setPlace] = useState('');
+  const [showMessageAlert, setShowMessageAlert] = useState(false);
+
 
   useEffect(() => {
     setIsVisible(true);
@@ -28,6 +31,10 @@ const App = () => {
 
   const handleGenerateCompletion = async () => {
     try {
+      if (!message) {
+        setShowMessageAlert(true);
+        return;
+      }
       const response = await fetch('http://localhost:3000/', {
         method: 'POST',
         headers: {
@@ -35,6 +42,7 @@ const App = () => {
         },
         body: JSON.stringify({ message, place }),
       });
+
   
       if (!response.ok) {
         throw new Error('Error generating completion');
@@ -58,7 +66,7 @@ const App = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); // Prevents the default behavior (form submission)
+      // e.preventDefault(); // Prevents the default behavior (form submission)
       handleGenerateCompletion();
     }
   };
@@ -78,7 +86,7 @@ const App = () => {
       </Routes>
 
       <div className='container-memorize'>
-        <input
+        <input required 
           type="text"
           id="message"
           value={message}
@@ -86,6 +94,9 @@ const App = () => {
           onKeyDown={handleKeyDown}
           placeholder="Tell me what do you want to memorize"
         />
+        {showMessageAlert && (
+          <div className='alert-message'>Please enter what you want to memorize!</div>
+        )}
       </div>
       
       {/* <div className='placeWarning'>
@@ -105,6 +116,7 @@ const App = () => {
         value={place}
         onChange={(e) => setPlace(e.target.value)}
         placeholder="E.g.Home,Kitchen, etc."
+        onKeyDown={handleKeyDown}
         className='place-input'
       />
 
