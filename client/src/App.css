@@ -6,8 +6,8 @@
 }
 
 .logo {
-  width: 300px; 
-  height: 300px; 
+  max-width: 270px; 
+  max-height: 270px; 
   margin-bottom: 10px;
 }
 
@@ -222,6 +222,8 @@ body::-webkit-scrollbar {
   text-align: center;
   max-width: 500px;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   /* margin-bottom: 300px; */
   opacity: 0;
   transition: opacity 0.7s ease-in-out;
@@ -254,99 +256,98 @@ body::-webkit-scrollbar {
 
 
 
-/* ---------------PHONE------------------ */
+/* Add styles for the hamburger menu icon */
+.menu-icon {
+  display: none; /* Hide menu icon by default */
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px auto;
+  transition: 0.3s;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 10px;
-    overflow-y: auto;
-  }
-
-  .logo {
-    max-width: 250px;
-    max-height: 250px;
-  }
-
-  .place-input {
-    width: 15em;
-  }
-
-  input {
-    max-width: 350px;
-  }
-
-
-  nav {
-    top: -5px;
-    right: 5px;
-  }
-
-  .nav ul {
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-  }
-
-  /* li {
-    margin-left: 20px;
-  } */
-
-  nav li {
-    margin: 0 10px;
-  }
-
-  .about-content {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-    margin-bottom: -300px;
-    opacity: 0;
-    transition: opacity 0.7s ease-in-out;
+  body {
+    height: 170vh;
+    align-items: center;
     justify-content: center;
-}
-}
-
-@media (max-width: 480px) {
-  .logo {
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-  
-  nav {
-    margin-top: 10px;
-    position: absolute;
-    padding: 1%;
     text-align: center;
+  }
+
+  p {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
-  .nav ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+  .menu-icon {
+    display: block;
+    color: #000000;  
   }
 
-  nav ul {
-    display: flex;
-    justify-content: space-between;
+  /* Adjust the menu styles for mobile */
+  .menu {
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 95%;
+    list-style-type: none;
+    padding: 0rem;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    width: 60%; /* Adjust the width as needed */
+    background-color: #fff; /* Optional: Set background color */
+    border: none; /* Optional: Add border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0); /* Optional: Add box shadow */
+    display: flex; /* Change display to flex */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items vertically */
+    z-index: 1000; /* Ensure menu appears above other content */
+    transform: translateX(100%); /* Initially translate the menu out of view */
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* Add transition for smooth animation */
+  }
+
+  /* Show the menu when it's open */
+  .menu.open {
+    transform: translateX(0); /* Translate the menu into view */
+  }
+
+  /* Style the menu links */
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem; /* Increase font size */
+    padding: 2rem; /* Add padding to create space between items */
     align-items: center;
-    padding: 5px;
-  }
-  
-  nav li {
-    margin: 0 25px; 
+    text-align: center;
+    margin-right: 50px;
   }
 
-  
-
-
-  li {
-    margin-left: 10px;
-    font-size: 14px;
-  }
 
   .place-input {
     width: 13em;
@@ -359,12 +360,64 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 376px) {
+  body {
+    height: 190vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
   .logo {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
   }
 
   li {
     margin-left: 5px;
+  }
+  p {
+    text-align: center;
+    justify-content: center;
+    max-width: 100%; /* Adjust the maximum width */
+    margin: 0 auto; /* Center the content horizontally */
+  }
+  .menu-icon {
+    display: block;
+    color: #000000;  
+  }
+
+  /* Adjust the menu styles for mobile */
+  .menu {
+    opacity: 95%;
+    list-style-type: none;
+    padding: 0;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    width: 60%; 
+    background-color: #fff; 
+    border: none; 
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    z-index: 1000; 
+    transform: translateX(100%); 
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  /* Show the menu when it's open */
+  .menu.open {
+    transform: translateX(0); /* Translate the menu into view */
+  }
+
+  /* Style the menu links */
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem; /* Increase font size */
+    padding: 2rem; /* Add padding to create space between items */
+    margin-right: -15px;
   }
 }

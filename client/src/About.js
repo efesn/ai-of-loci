@@ -23,7 +23,7 @@ const About = () => {
 
       While you have the option to enter a specific place along with your text to place input, rest assured that AI will intelligently select a place for you if you prefer not to specify one. <br /><br />
 
-      Our main goal is to transform the project into a comprehensive memorization and learning platform by integrating all other popularly used methods and tools (such as flashcards, mind maps, the Pomodoro technique, interactive quizzes for reinforcing information, group study sessions, etc.) to reach more users and meet their needs and desires.
+      Our main goal is to transform the project into a comprehensive memorization and studying, learning platform by integrating all other popularly used methods and tools (such as flashcards, mind maps, the Pomodoro technique, interactive quizzes for reinforcing information, group study sessions, etc.) to reach more users and meet their needs and desires.
 
       {/* Embark on a journey where memory meets innovation. AI Of Loci is more than just an app; it's your companion in unlocking the full potential of your memory. Explore the seamless integration of ancient techniques and modern technology – welcome to the future of memory enhancement! */}
 
