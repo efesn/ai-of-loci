@@ -5,7 +5,11 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-ro
 import Navigation from './Navigation/Navigation';
 import About from './About';
 import './index';
+import ReactGA from 'react-ga';
+const { useLocation } = require('react-router-dom');
 
+
+ReactGA.initialize(process.env.TRACKING_ID);
 
 
 const Home = () => {
@@ -22,7 +26,13 @@ const App = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [place, setPlace] = useState('');
   const [showMessageAlert, setShowMessageAlert] = useState(false);
+  const [generatedImage, setGeneratedImage] = useState(null);
 
+
+  const location = useLocation();
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -35,7 +45,7 @@ const App = () => {
         setShowMessageAlert(true);
         return;
       }
-      const response = await fetch('http://localhost:3000/', {
+      const response = await fetch('http://localhost:3000/generate-loci', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,6 +68,29 @@ const App = () => {
         console.log('Invalid or empty completion in response');
       }
   
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleGenerateImage = async () => {
+    try {
+    
+      const response = await fetch('http://localhost:3000/generate-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ completion }), 
+      });
+
+      if (!response.ok) {
+        throw new Error('Error generating image');
+      }
+
+
+      const imageData = await response.json();
+      setGeneratedImage(imageData.image);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -126,11 +159,26 @@ const App = () => {
       </div>
       <div>
         <button onClick={handleGenerateCompletion}>Generate Loci</button>
+        {/* {completion && (
+          <button onClick={handleGenerateImage}>Generate The Image</button>
+        )} */}
       </div>
       {completion && (
         <div className="result">
           <h2>Here you go:</h2>
           <p>{completion}</p>
+          {completion && (
+            <div>
+              <button onClick={handleGenerateImage}>Generate The Image</button>
+            </div>
+        )}
+        </div>
+      )}
+      {generatedImage && (
+        <div className="generated-image">
+          {/* make h2 appear after image generated */}
+          <h2>Ta-da! Your masterpiece awaits:</h2> 
+          <img src={generatedImage} alt="Generated Image" />
         </div>
       )}
     </div>
