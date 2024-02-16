@@ -5,6 +5,21 @@
   font-style: normal;
 }
 
+input#message.memorize-input {
+  width: 33em;
+  padding: 10px;
+  border: 1px solid #323232;
+  border-radius: 5px;
+}
+
+
+
+/* .css-nk2p6v {
+  margin-top: 50%;
+} */
+
+
+
 .logo {
   max-width: 270px; 
   max-height: 270px; 
@@ -32,7 +47,7 @@ body {
 .container {
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
-  height: 800px; 
+  height: 800px;
   opacity: 0; /* Initial opacity set to 0 */
   transition: opacity 0.5s ease-in-out;
 }
@@ -50,7 +65,7 @@ body {
 
 .container-place {
 
-  /* display: flex; */
+  display: flex;
   align-items: center; /* Align items at the center of the cross axis */
   font-family: 'JetBrains Mono', monospace;
   flex-direction: row; /* Display items horizontally */
@@ -68,7 +83,7 @@ body {
  .place-label {
   margin-right: 20px;
   margin-bottom: 30px;
-  width: 30%;
+  /* width: 19%; */
   justify-content: flex-start;
 }
 
@@ -76,6 +91,8 @@ body {
   width: 13em;
   justify-content: center;
 }
+
+
 
 .placeWarning {
   color: red;
@@ -194,10 +211,10 @@ ul {
   text-align: center;
   display: block;
 }
-
+/* navigation items */
 li {
   display: inline-block;
-  margin-left: 85px;
+  margin-left: 65px;
   text-align: center;
 }
 
@@ -286,9 +303,104 @@ body::-webkit-scrollbar {
   color: #333;
 }
 
+.signup-button {
+  background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+/* the gif  */
+.register-page-body {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-left: 700px;
+  background-image: url(https://i.imgur.com/I4dmNA7.gif);
+  background-size: cover;
+  background-position: center;
+  animation-duration: 100s;
+  
+}
+/* join us labeled container */
+.register-container {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  
+  
+  /* Positioning */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 450px; 
+  margin-top: auto; 
+  margin-bottom: auto; 
+}
+
+.login-page-body {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-left: 700px;
+  background-image: url(https://i.imgur.com/I4dmNA7.gif);
+  background-size: cover;
+  background-position: center;
+  animation-duration: 100s;
+  
+}
+/* join us labeled container */
+.login-container {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  
+  
+  /* Positioning */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 450px; 
+  margin-top: auto; 
+  margin-bottom: auto; 
+}
 
 
-/* Adjustments for smaller screens */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2d2d2d;
+  border-radius: 5px;
+}
+
+.signup-button[type="submit"] {
+  background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+signup-button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+/* -------------------------------------- Adjustments for smaller screens --------------------------------------------------------*/
 @media (max-width: 768px) {
   body {
     height: 170vh;
@@ -307,6 +419,9 @@ body::-webkit-scrollbar {
     display: block;
     color: #000000;  
   }
+
+
+
 
   /* Adjust the menu styles for mobile */
   .menu {
@@ -348,17 +463,27 @@ body::-webkit-scrollbar {
     margin-right: 50px;
   }
 
+  
+
 
   .place-input {
     width: 13em;
   }
 
+  
+
   input {
     font-size: 14px;
     max-width: 320px;
   }
-}
 
+  .signup-button {
+    width: 50%;
+    font-size: 14px;
+    padding: 5px 3px;
+  }
+}
+/* ---------------------------------------- EVEN SMALLER ---------------------------------------------------------- */
 @media (max-width: 376px) {
   body {
     height: 190vh;

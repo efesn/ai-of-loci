@@ -1,3 +1,4 @@
+// import Footer from './components/Footer';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './logo.png';
@@ -7,6 +8,7 @@ import About from './About';
 import './index';
 import ReactGA from 'react-ga';
 const { useLocation } = require('react-router-dom');
+
 
 
 ReactGA.initialize(process.env.TRACKING_ID);
@@ -103,9 +105,10 @@ const App = () => {
       handleGenerateCompletion();
     }
   };
-
+  
   return (
     <div className={`container ${isVisible ? 'active' : ''}`}>
+      <main>
       <img src={logo} alt="AI Logo" className="logo" />
       <h1>AI Of Loci</h1>
 
@@ -118,6 +121,8 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
       </Routes>
 
+      
+
       <div className='container-memorize'>
         <input required 
           type="text"
@@ -126,15 +131,16 @@ const App = () => {
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Tell me what do you want to memorize"
+          className='memorize-input'
         />
         {showMessageAlert && (
           <div className='alert-message'>Please enter what you want to memorize!</div>
-        )}
+          )}
       </div>
       
       {/* <div className='placeWarning'>
       <p>Place will be selected randomly if you dont enter anything</p>
-      </div> */}
+    </div> */}
 
       <div className='container-place'>
 
@@ -144,7 +150,7 @@ const App = () => {
       
         
         <input
-        type="text"
+        type="text-place"
         id="place"
         value={place}
         onChange={(e) => setPlace(e.target.value)}
@@ -181,8 +187,12 @@ const App = () => {
           <img src={generatedImage} alt="Generated Image" />
         </div>
       )}
+      </main>
+  {/* <div className='footer_second'> */}
+  {/* </div> */}
     </div>
-  );
-};
-
-export default App;
+    
+    );
+  };
+  
+  export default App;
