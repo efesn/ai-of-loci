@@ -7,6 +7,7 @@ import Navigation from './Navigation/Navigation';
 import About from './About';
 import './index';
 import ReactGA from 'react-ga';
+import { set } from 'mongoose';
 const { useLocation } = require('react-router-dom');
 
 
@@ -28,7 +29,8 @@ const App = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [place, setPlace] = useState('');
   const [showMessageAlert, setShowMessageAlert] = useState(false);
-  const [generatedImage, setGeneratedImage] = useState(null);
+  const [generatedImageURL, setGeneratedImageURL] = useState(null);
+  const [loading, setLoading] = useState(false);
 
 
   const location = useLocation();
@@ -43,8 +45,10 @@ const App = () => {
 
   const handleGenerateCompletion = async () => {
     try {
+      setLoading(true)
       if (!message) {
         setShowMessageAlert(true);
+        setLoading(false)
         return;
       }
       const response = await fetch('http://localhost:3000/generate-loci', {
@@ -59,44 +63,48 @@ const App = () => {
       if (!response.ok) {
         throw new Error('Error generating completion');
       }
-  
+
       const result = await response.json();
       setCompletion(result.completion.content);
-  
-      if (result.completion) {
-        // Adjust property name according to the backend response
-        setCompletion(result.completion.content);
-      } else {
-        console.log('Invalid or empty completion in response');
-      }
-  
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false); 
     }
   };
 
   const handleGenerateImage = async () => {
     try {
-    
+      setLoading(true);
+      if (!message) {
+        setShowMessageAlert(true);
+        setLoading(false);
+        return;
+      }
       const response = await fetch('http://localhost:3000/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ completion }), 
+        body: JSON.stringify({ completion }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Error generating image');
       }
-
-
+  
       const imageData = await response.json();
-      setGeneratedImage(imageData.image);
+      // Access the correct property in the response
+      const imageUrl = imageData.image.data[0].url;
+      setGeneratedImageURL(imageUrl);
     } catch (error) {
       console.error('Error:', error);
     }
+    finally {
+      setLoading(false);
+    }
   };
+  
   
 
   const handleKeyDown = (e) => {
@@ -164,29 +172,29 @@ const App = () => {
       <p>Place will be selected randomly if you dont enter a place</p>
       </div>
       <div>
-        <button onClick={handleGenerateCompletion}>Generate Loci</button>
-        {/* {completion && (
-          <button onClick={handleGenerateImage}>Generate The Image</button>
-        )} */}
+        <button onClick={handleGenerateCompletion} disabled={loading}>Generate Loci</button>
       </div>
+      {loading && <p>Generating...</p>}
       {completion && (
         <div className="result">
           <h2>Here you go:</h2>
           <p>{completion}</p>
           {completion && (
             <div>
-              <button onClick={handleGenerateImage}>Generate The Image</button>
+              <button onClick={handleGenerateImage} disabled={loading}>Generate The Image</button>
+              {loading && <p>Generating...</p>}
             </div>
         )}
         </div>
       )}
-      {generatedImage && (
+      
+      {generatedImageURL && (
         <div className="generated-image">
-          {/* make h2 appear after image generated */}
-          <h2>Ta-da! Your masterpiece awaits:</h2> 
-          <img src={generatedImage} alt="Generated Image" />
-        </div>
+          <h2>Ta-da! Your masterpiece awaits:</h2>
+          <img src={generatedImageURL} alt="Generated Image" />
+          </div>
       )}
+
       </main>
   {/* <div className='footer_second'> */}
   {/* </div> */}

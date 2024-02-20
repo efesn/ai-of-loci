@@ -9,6 +9,8 @@ import jwt from 'jsonwebtoken';
 import User from './models/db.js';
 import mongoose from 'mongoose';
 
+
+
 dotenv.config();
 
 const openai = new OpenAI({

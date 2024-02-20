@@ -14,6 +14,29 @@ input#message.memorize-input {
 
 
 
+.login-container {
+  max-width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+}
+
+.go-back-button-register {
+  position: relative;
+  margin-top: 50px;
+}
+
+.go-back-button-register::before {
+  content: '←'; 
+  position: absolute;
+  left: -10px; 
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out; 
+}
+
+.go-back-button-register:hover::before {
+  opacity: 1; 
+}
+
 /* .css-nk2p6v {
   margin-top: 50%;
 } */
@@ -114,6 +137,25 @@ body {
  .place-input {
   width: 13em;
  } */
+
+input#username {
+  width: 90%;
+  height: 3em;
+  margin-bottom: 2em;
+  font-family: 'JetBrains Mono', monospace;
+}
+input#email {
+  width: 90%;
+  height: 3em;
+  margin-bottom: 2em;
+  font-family: 'JetBrains Mono', monospace;
+}
+input#password {
+  width: 90%;
+  height: 3em;
+  margin-bottom: 2em;
+  font-family: 'JetBrains Mono', monospace;
+}
 
 
 input {
@@ -296,6 +338,8 @@ body::-webkit-scrollbar {
 .menu li {
   display: inline-block;
   margin-right: 20px;
+  transition: transform 0.5s ease;
+  
 }
 
 .menu a {
@@ -303,68 +347,126 @@ body::-webkit-scrollbar {
   color: #333;
 }
 
+.menu li:hover a {
+  transform: scale(1.05);
+ 
+}
+
+
 .signup-button {
   background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
-}
-/* the gif  */
-.register-page-body {
-  max-width: 400px;
+  text-align: center;
   margin: 0 auto;
-  padding: 20px;
-  margin-left: 700px;
-  background-image: url(https://i.imgur.com/I4dmNA7.gif);
-  background-size: cover;
-  background-position: center;
-  animation-duration: 100s;
-  
-}
-/* join us labeled container */
-.register-container {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 5px;
-  
-  
-  /* Positioning */
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 450px; 
-  margin-top: auto; 
-  margin-bottom: auto; 
+  transition: transform 0.3s ease; 
 }
 
-.login-page-body {
+.signup-button:hover {
+  transform: scale(1.50); 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adjust the styles for the register container */
+.register-container {
+  background-position: center;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 5px;
+  max-width: 600px; /* Adjust maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex; /* Use flexbox to arrange items in a row */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Adjust the styles for the logo */
+.logo {
+  max-width: 270px;
+  max-height: 270px;
+  margin-bottom: 20px; /* Add margin below the logo */
+}
+
+/* Adjust the styles for the form */
+form {
+  width: 100%; /* Make the form full width */
+  max-width: 400px; /* Limit the maximum width */
+}
+
+/* .login-page-body {
+  background-color: white; 
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  margin-left: 700px;
-  background-image: url(https://i.imgur.com/I4dmNA7.gif);
-  background-size: cover;
-  background-position: center;
-  animation-duration: 100s;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+/* Default styles for the login page */
+.login-page-body {
+  background-color: rgb(247, 247, 247); /* Set background color to white */
+  max-width: 100%; /* Adjust maximum width */
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* join us labeled container */
+
+/* Adjust the styles for the login container */
 .login-container {
-  background: #f9f9f9;
+  background: #dedede;
   padding: 20px;
   border-radius: 5px;
-  
-  
-  /* Positioning */
-  position: fixed;
+  opacity: 0.95;
+  max-width: 400px; /* Adjust maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
   top: 0;
-  bottom: 0;
   right: 0;
-  width: 450px; 
-  margin-top: auto; 
-  margin-bottom: auto; 
 }
+
+.register-page-body {
+  background-color: rgb(247, 247, 247); /* Set background color to white */
+  max-width: 100%; /* Adjust maximum width */
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adjust the styles for the login container */
+.register-container {
+  background: #dedede;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: 0.95;
+  max-width: 400px; /* Adjust maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+
+input[type='email'],
+input[type='password'] {
+  padding: 8px; /* Reduce input padding for smaller screens */
+}
+
+
 
 
 .form-group {
@@ -379,7 +481,6 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%;
   padding: 10px;
   border: 1px solid #2d2d2d;
   border-radius: 5px;
@@ -403,11 +504,17 @@ signup-button[type="submit"]:hover {
 /* -------------------------------------- Adjustments for smaller screens --------------------------------------------------------*/
 @media (max-width: 768px) {
   body {
-    height: 170vh;
+    height: 130vh;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
+
+  .about-content {
+    max-width: 90%;
+    margin-top: 100%;
+  }
+
 
   p {
     display: flex;
@@ -415,13 +522,65 @@ signup-button[type="submit"]:hover {
     justify-content: center;
   }
 
+  .signup-button {
+    background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
+    border-radius: 5px;
+  }
+  
+
+  input#message.memorize-input {
+    width: 23em;
+    padding: 10px;
+    border: 1px solid #323232;
+    border-radius: 5px;
+}
+
   .menu-icon {
     display: block;
     color: #000000;  
   }
 
+  .register-page-body {
+    width: 90%; 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 20px; 
+    position: relative; 
+    top: auto; 
+    bottom: auto; 
+    right: auto;
+    background-image: none;
+    background: #f9f9f9;
+    height: 100vh;
+  }
 
+  .register-container {
+    max-width: 90%; /* Adjust width for smaller screens */
+    padding: 30px;
+  }
 
+  .register-page .logo {
+    max-width: 200px; /* Adjust logo size for smaller screens */
+    max-height: 200px;
+    margin-bottom: 20px; /* Add margin to separate logo from form */
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    width: calc(100% - 20px); /* Adjust input width for smaller screens */
+    max-width: none; /* Remove max-width to allow full width */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .signup-button {
+    width: 100%; /* Make button full width */
+    font-size: 16px; /* Adjust font size for smaller screens */
+    padding: 10px; /* Adjust padding */
+  }
+
+  
 
   /* Adjust the menu styles for mobile */
   .menu {
@@ -464,13 +623,10 @@ signup-button[type="submit"]:hover {
   }
 
   
-
-
   .place-input {
-    width: 13em;
+    width: 12em;
   }
 
-  
 
   input {
     font-size: 14px;
@@ -482,6 +638,86 @@ signup-button[type="submit"]:hover {
     font-size: 14px;
     padding: 5px 3px;
   }
+
+  
+
+  /* Adjust label alignment */
+label {
+  display: block;
+  margin-bottom: 5px;
+  width: 150px; /* Set a fixed width for labels */
+}
+
+/* Make inputs full width */
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  width: calc(100% - 160px); /* Adjust input width to leave space for the label */
+  margin-left: 10px; /* Add some space between label and input */
+}
+
+
+.login-container {
+  display: flow;
+  position: absolute;
+  background: #f9f9f9;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  animation-duration: 100s;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.login-page-body {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
+  max-width: 600px; /* Adjust maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex; /* Use flexbox to arrange items in a row */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.logo {
+  max-width: 270px;
+  max-height: 270px;
+  margin-bottom: 20px; /* Add margin below the logo */
+}
+
+form {
+  width: 100%; /* Make the form full width */
+  max-width: 400px; /* Limit the maximum width */
+}
+
+.login-button {
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+
+.signup-button[type="submit"] {
+  background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: none;
+  width: 50%;
+}
+
+
+
 }
 /* ---------------------------------------- EVEN SMALLER ---------------------------------------------------------- */
 @media (max-width: 376px) {
@@ -491,6 +727,34 @@ signup-button[type="submit"]:hover {
     justify-content: center;
     text-align: center;
   }
+
+  .register-page-body {
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250vh;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-top: 100%;
+  }
+  
+  .login-page-body {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .logo {
     max-width: 200px;
     max-height: 200px;
@@ -504,12 +768,15 @@ signup-button[type="submit"]:hover {
     justify-content: center;
     max-width: 100%; /* Adjust the maximum width */
     margin: 0 auto; /* Center the content horizontally */
+    font-size: 0.9em;
   }
+  
   .menu-icon {
     display: block;
-    color: #000000;  
+    color: #000000; 
   }
 
+  
   /* Adjust the menu styles for mobile */
   .menu {
     opacity: 95%;
@@ -517,8 +784,7 @@ signup-button[type="submit"]:hover {
     padding: 0;
     position: fixed;
     top: 50px;
-    right: 0;
-    bottom: 0;
+    left: 50%;
     width: 60%; 
     background-color: #fff; 
     border: none; 
@@ -530,6 +796,8 @@ signup-button[type="submit"]:hover {
     transform: translateX(100%); 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   }
+
+ 
 
   /* Show the menu when it's open */
   .menu.open {
@@ -543,6 +811,20 @@ signup-button[type="submit"]:hover {
     font-weight: bold;
     font-size: 1.2rem; /* Increase font size */
     padding: 2rem; /* Add padding to create space between items */
-    margin-right: -15px;
+    text-align: center;
+    margin-right: 50px;
   }
+
+
+  
+  .logo {
+    max-width: 150px; /* Reduce logo size for even smaller screens */
+    max-height: 150px;
+    margin-bottom: 10px; /* Adjust margin */
+  }
+
+  
+  
+  
+  
 }
