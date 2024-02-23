@@ -31,6 +31,8 @@ const App = () => {
   const [showMessageAlert, setShowMessageAlert] = useState(false);
   const [generatedImageURL, setGeneratedImageURL] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [imageGenerationError, setImageGenerationError] = useState('');
+
 
 
   const location = useLocation();
@@ -99,6 +101,11 @@ const App = () => {
       setGeneratedImageURL(imageUrl);
     } catch (error) {
       console.error('Error:', error);
+      if (error.response && error.response.status === 403) {
+        setImageGenerationError('The image generation limit has been reached. Each user is entitled to generate only one image for now.');
+      } else {
+        setImageGenerationError('The image generation limit has been reached. Each user is entitled to generate only one image for now.');
+      }
     }
     finally {
       setLoading(false);
@@ -169,7 +176,7 @@ const App = () => {
 
       </div>
       <div className='placeWarning'>
-      <p>Place will be selected randomly if you dont enter a place</p>
+      <p>Place will be selected randomly by AI if you dont enter a place</p>
       </div>
       <div>
         <button onClick={handleGenerateCompletion} disabled={loading}>Generate Loci</button>
@@ -194,7 +201,11 @@ const App = () => {
           <img src={generatedImageURL} alt="Generated Image" />
           </div>
       )}
-
+      {imageGenerationError && (
+        <div className="error-message">
+          <p>{imageGenerationError}</p>
+        </div>
+      )}
       </main>
   {/* <div className='footer_second'> */}
   {/* </div> */}

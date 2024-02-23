@@ -14,7 +14,7 @@ export default function Loci() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
-        <Route path="/faq" element={<FaqPage />} />
+        {/* <Route path="/faq" element={<FaqPage />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

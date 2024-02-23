@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from './models/db.js';
+import { User, GeneratedImage } from './models/db.js';
 import mongoose from 'mongoose';
 
 
@@ -119,6 +119,21 @@ app.delete('/users/:userId', async (req, res) => {
   }
 });
 
+const checkImageGenerationLimit = async (req, res, next) => {
+  const ipAddress = req.ip; 
+  try {
+    const existingImage = await GeneratedImage.findOne({ ipAddress });
+    if (existingImage) {
+      return res.status(403).json({ error: 'Image generation limit reached for this IP address' });
+    }
+    next(); 
+  } catch (error) {
+    console.error('Error checking image generation limit:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
 // Loci text generator
 app.post("/generate-loci", async (req, res) => {
   console.log("Received a request:", req.body);
@@ -144,11 +159,11 @@ app.post("/generate-loci", async (req, res) => {
   }
 });
 
-app.post("/generate-image", async (req, res) => {
+app.post("/generate-image", checkImageGenerationLimit,  async (req, res) => {
   try {
     const { completion } = req.body;
+    const ipAddress = req.ip;
 
-    
     const prompt = Array.isArray(completion) ? completion.join('\n') : completion;
 
     const image = await openai.images.generate({
@@ -157,6 +172,7 @@ app.post("/generate-image", async (req, res) => {
       n:1
     });
 
+    await GeneratedImage.create({ ipAddress });
     res.json({ image });
 
   } catch (error) {
@@ -166,9 +182,8 @@ app.post("/generate-image", async (req, res) => {
 });
 
 
-
-
-
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+
