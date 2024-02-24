@@ -148,6 +148,8 @@ dist
 
 node_modules
 
+README.md
+
 *.sublime*
 
 psd

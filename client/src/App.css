@@ -43,10 +43,6 @@ input#message.memorize-input {
   opacity: 1; 
 }
 
-/* .css-nk2p6v {
-  margin-top: 50%;
-} */
-
 
 
 .logo {
@@ -72,6 +68,8 @@ body {
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
 }
+
+
 
 
 .container {

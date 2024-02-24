@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# AI Of Loci 🧠
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+__A digital heaven for memory enthusiasts and learners seeking a modern approach to the age-old Method of Loci. At AI Of Loci, we blend ancient wisdom with cutting-edge technology to revolutionize the way you memorize and recall information.__
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+AI Of Loci is a memorization and learning/studying platform powered by AI. Users can effectively learn information using advanced AI algorithms and an ancient memorization technique known as the "Method of Loci" or "Mind Palace".
 
-### `npm start`
+The platform assists users in learning and memorizing information by allowing them to input text (and place) related to a specific topic. Users enter detailed text about the subject they want to learn, and AI Of Loci enhances their memorization based on this input and place. For example, when a user enters a topic they want to learn about biology, the platform provides a series of mind palace content containing important concepts related to it in the place you entered.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+While you have the option to enter a specific place along with your text to place input, rest assured that AI will intelligently select a place for you if you prefer not to specify one.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Others**: OpenAI API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+To use AI of Loci locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the AI of Loci repository to your local machine:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/efesn/ai-of-loci.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the cloned directory:
+```bash
+cd ai-of-loci
+```
 
-### `npm run eject`
+### Backend (API)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Navigate to the Backend Directory
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd api
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install Dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+3. Create a .env file in the api directory and define the necessary environment variables:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+OPENAI_API_KEY=your openai api key
+PORT=3001
+ORG=your openai organization key
+JWT_SECRET=Recommended value is a 256-bit encryption key.
+MONGO=your mongodb connection url
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Run the Backend server
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Frontend
 
-### Analyzing the Bundle Size
+1. Navigate to the Frontend directory
+```bash
+cd client
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Install Dependencies
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Run the Frontend server
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The frontend development server should now be running locally at http://localhost:3001
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Support
 
-### `npm run build` fails to minify
+For any questions, issues, or feedback, please contact info@aiofloci.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details.
+

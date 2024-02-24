@@ -1,4 +1,4 @@
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './logo.png';
@@ -136,6 +136,7 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
       </Routes>
 
+
       
 
       <div className='container-memorize'>
@@ -207,11 +208,12 @@ const App = () => {
         </div>
       )}
       </main>
-  {/* <div className='footer_second'> */}
-  {/* </div> */}
+      <div>
+      <Footer className="footer"/>
+      </div>
     </div>
-    
     );
   };
+ 
   
   export default App;
