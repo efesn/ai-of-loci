@@ -73,6 +73,7 @@ const App = () => {
     } finally {
       setLoading(false); 
     }
+
   };
 
   const handleGenerateImage = async () => {
@@ -110,6 +111,7 @@ const App = () => {
     finally {
       setLoading(false);
     }
+    
   };
   
   

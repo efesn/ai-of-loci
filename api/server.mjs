@@ -162,7 +162,8 @@ app.post("/generate-loci", async (req, res) => {
 app.post("/generate-image", checkImageGenerationLimit,  async (req, res) => {
   try {
     const { completion } = req.body;
-    const ipAddress = req.ip;
+
+    const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
     const prompt = Array.isArray(completion) ? completion.join('\n') : completion;
 
@@ -180,6 +181,7 @@ app.post("/generate-image", checkImageGenerationLimit,  async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 
 app.listen(port, () => {
