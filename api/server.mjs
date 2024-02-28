@@ -119,8 +119,31 @@ app.delete('/users/:userId', async (req, res) => {
   }
 });
 
+app.get('/user', async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Extract token from Authorization header
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET); // Decode JWT token
+    const userId = decodedToken.userId;
+
+    // Find user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Return username
+    res.json({ username: user.username });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
 const checkImageGenerationLimit = async (req, res, next) => {
-  const ipAddress = req.ip; 
+  const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   try {
     const existingImage = await GeneratedImage.findOne({ ipAddress });
     if (existingImage) {

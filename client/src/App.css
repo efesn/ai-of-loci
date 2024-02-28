@@ -12,10 +12,34 @@ input#message.memorize-input {
   border-radius: 5px;
 }
 
+/* In your CSS file */
+.logout-button {
+  background-color: #f44336; /* Red background color */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+  box-shadow: none;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+
 
 .error-message {
   color: red;
   font-size: 1.3em;
+  margin-top: 1.5em;
+}
+
+.success-message {
+  color: green;
+  font-size: 1.0em;
   margin-top: 1.5em;
 }
 
@@ -243,14 +267,14 @@ button {
 }
 
 nav {
-  position: absolute;
+  position: absolute; 
   top: 10px;
   right: 10px;
   padding: 1%;
   justify-content: center;
   text-align: center;
+  z-index: 1000; /* Ensure navigation is above other content */
 }
-
 ul {
   list-style-type: none;
   margin: 5px;
@@ -276,6 +300,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+
 
 body::-webkit-scrollbar {
   display: none;
@@ -344,6 +370,7 @@ body::-webkit-scrollbar {
   display: inline-block;
   margin-right: 20px;
   transition: transform 0.5s ease;
+  font-weight: bold
   
 }
 
@@ -362,7 +389,7 @@ body::-webkit-scrollbar {
   background: linear-gradient(to right, #5684e1, #33ff00, #ffd53e);
   color: white;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
   margin: 0 auto;
   transition: transform 0.3s ease; 
@@ -583,6 +610,19 @@ signup-button[type="submit"]:hover {
     width: 100%; /* Make button full width */
     font-size: 16px; /* Adjust font size for smaller screens */
     padding: 10px; /* Adjust padding */
+  }
+
+  .logout-button {
+    background-color: #f44336; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    box-shadow: none;
+    margin-top: 30px;
   }
 
   
@@ -826,6 +866,19 @@ form {
     max-width: 150px; /* Reduce logo size for even smaller screens */
     max-height: 150px;
     margin-bottom: 10px; /* Adjust margin */
+  }
+
+  .logout-button {
+    background-color: #f44336; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+    box-shadow: none;
+    margin-top: 30px;
   }
 
   

@@ -41,6 +41,7 @@ const Register = () => {
       const response = await axios.post('http://localhost:3000/register', formData);
       console.log(response.data.message); // Assuming server responds with a success message
       setSignupSuccess(true);
+      // setErrorMessage(<p className="success-message">Success! Redirecting to home page...</p>);
     } catch (error) {
       console.error('Error registering user:', error);
       // Handle error, display message to user, etc.
@@ -60,7 +61,9 @@ const Register = () => {
   useEffect(() => {
     if (signupSuccess) {
       // Redirect to home screen after successful signup
-      history('/');
+      setTimeout(() => {
+        history('/');
+      }, 3000); // Redirect after 3 seconds
     }
   }, [signupSuccess, history]);
 
@@ -68,6 +71,7 @@ const Register = () => {
     <div className='register-page'>
       <img src={logo} alt="AI Of Loci Logo" className="logo" />
         <h2 className='join-us'>Join Us!</h2>
+      {signupSuccess && <p className="success-message">Success! Redirecting to home page...</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>

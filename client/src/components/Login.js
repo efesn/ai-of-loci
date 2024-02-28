@@ -4,7 +4,7 @@ import axios from 'axios';
 import logo from '../logo.png';
 
 
-const Login = () => {
+const Login = ( {setUsername  } ) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -34,15 +34,19 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/login', formData);
-      console.log(response.data.token); // Assuming server responds with a JWT token
-      // Save token to local storage or cookie
-      // Redirect to home screen after successful login
-      history('/');
+      const { token } = response.data;
+      localStorage.setItem('token', token); // Store the JWT token
+      setErrorMessage(<p className="success-message">Success! Redirecting to home page...</p>);
+      setTimeout(() => {
+        history('/');
+    }, 3000);
+
     } catch (error) {
       console.error('Error logging in user:', error);
       setErrorMessage('Invalid email or password');
     }
   };
+  
 
   return (
     <div className="login-page">
