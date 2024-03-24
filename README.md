@@ -91,7 +91,7 @@ The frontend development server should now be running locally at http://localhos
 
 ## Support
 
-For any questions, issues, or feedback, please contact info@aiofloci.com
+For any questions, issues or feedback, please contact info@aiofloci.com
 
 ## License
 
