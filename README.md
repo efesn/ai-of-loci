@@ -8,6 +8,8 @@
 __A digital heaven for memory enthusiasts and learners seeking a modern approach to the age-old Method of Loci. At AI Of Loci, we blend ancient wisdom with cutting-edge technology to revolutionize the way you memorize and recall information.__
 
 ## Introduction
+#####  🎥 *See the demo if domain is currently unreachable*
+https://github.com/user-attachments/assets/127e18d8-2316-4a44-8747-aefdcc858062
 
 AI Of Loci is a memorization and learning/studying platform powered by AI. Users can effectively learn information using advanced AI algorithms and an ancient memorization technique known as the "Method of Loci" or "Mind Palace".
 
